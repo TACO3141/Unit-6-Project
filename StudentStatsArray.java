@@ -68,5 +68,14 @@ public class StudentStatsArray
 
   public int Search(String name)
   {
+    int nameIndex = 0;
+    for (i = 0; i < students.length - 1; i++)
+    {
+      if (students[i].getName().equals(name))
+      {
+        nameIndex = i;
+        break;
+      }
+    }
   }
 }
