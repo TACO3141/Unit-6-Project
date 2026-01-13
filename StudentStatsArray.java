@@ -68,7 +68,7 @@ public class StudentStatsArray
 
   public int Search(String name)
   {
-    int nameIndex = 0;
+    int nameIndex = -1;
     for (i = 0; i < students.length - 1; i++)
     {
       if (students[i].getName().equals(name))
@@ -77,5 +77,71 @@ public class StudentStatsArray
         break;
       }
     }
+    return nameIndex;
+  }
+
+  public int Search(double grade)
+  {
+    int gradeIndex = -1;
+    for (i = 0; i < students.length - 1; i++)
+    {
+      if (students[i].getGrade() >= grade)
+      {
+        gradeIndex = i;
+        break;
+      }
+    }
+    return gradeIndex;
+  }
+
+  private boolean isAscending()
+  {
+    for(int i = 1; i < students.length; i++)
+    {
+      if(students[i-1].getCurrentGrade() > students[i].getCurrentGrade())
+      {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  private boolean isDescending()
+  {
+    for (int i = 1; i < students.length; i++)
+    {
+      if (students[i-1].getCurrentGrade() < students[i].getCurrentGrade())
+      {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  public int sortStatus()
+  {
+    if (students.isAscending() == true)
+    {
+      return 1;
+    }
+    else if (students.isDescending() == false)
+    {
+      return -1;
+    }
+    else 
+    {
+      return 0;
+    }
+  }
+  
+  public String toString()
+  {
+    System.out.println("[");
+    for (i = 0; i < students.length - 1; i++)
+    {
+      students[i].toString();
+      System.out.println(",");
+    }
+    System.out.println("]");
   }
 }
