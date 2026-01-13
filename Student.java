@@ -31,7 +31,7 @@ public class Student
     System.out.println("{");
     System.out.println("name: " + name + ",");
     System.out.println("current grade: " + currentGrade + ",");
-    System.out.println("grade level: " + gradeLevel + "\n}")
+    System.out.print("grade level: " + gradeLevel + "\n}");
   }
 
   
